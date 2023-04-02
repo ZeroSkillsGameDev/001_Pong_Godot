@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://butsvhy18ephr"]
+
+[ext_resource type="Texture2D" uid="uid://cekwdj6r40rfk" path="res://img/background.png" id="1_1aqio"]
+[ext_resource type="Script" path="res://src/main.gd" id="1_i07ty"]
+[ext_resource type="PackedScene" uid="uid://c2m5j3mc37c5m" path="res://pad.tscn" id="3_oki2c"]
+[ext_resource type="Script" path="res://src/pad1.gd" id="4_o667x"]
+[ext_resource type="Script" path="res://src/pad2.gd" id="5_pjtji"]
+[ext_resource type="FontFile" uid="uid://cd1ranrwcj1pn" path="res://fonts/PressStart2P-Regular.ttf" id="6_30t7i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0678"]
+size = Vector2(1920, 20)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_i07ty")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_1aqio")
+
+[node name="TopWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
+position = Vector2(960, 10)
+shape = SubResource("RectangleShape2D_f0678")
+
+[node name="BottomWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall"]
+position = Vector2(960, 1070)
+shape = SubResource("RectangleShape2D_f0678")
+
+[node name="Player1" parent="." instance=ExtResource("3_oki2c")]
+script = ExtResource("4_o667x")
+
+[node name="Player2" parent="." instance=ExtResource("3_oki2c")]
+script = ExtResource("5_pjtji")
+
+[node name="ScoreP1" type="Label" parent="."]
+offset_left = 660.0
+offset_top = 100.0
+offset_right = 916.0
+offset_bottom = 231.0
+theme_override_fonts/font = ExtResource("6_30t7i")
+theme_override_font_sizes/font_size = 128
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreP2" type="Label" parent="."]
+offset_left = 1020.0
+offset_top = 100.0
+offset_right = 1276.0
+offset_bottom = 231.0
+theme_override_fonts/font = ExtResource("6_30t7i")
+theme_override_font_sizes/font_size = 128
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GUI" type="Label" parent="."]
+offset_left = 500.0
+offset_top = 540.0
+offset_right = 1460.0
+offset_bottom = 741.0
+theme_override_colors/font_color = Color(0.792157, 0.721569, 0.168627, 1)
+theme_override_colors/font_outline_color = Color(0.964706, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("6_30t7i")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
