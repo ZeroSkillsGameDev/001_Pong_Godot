@@ -3,7 +3,7 @@ Version of the classic game Pong made with Godot Engine
 
 You can watch the video of how I made this on Youtube:
 
-
+https://youtu.be/DlUJciV5ohs
 
 The font is called Press Start 2P and can be downloaded from Google Fonts:
 
